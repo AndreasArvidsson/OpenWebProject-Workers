@@ -1,0 +1,38 @@
+{
+    "name": "owp.workers",
+    "description": "Multithreaded worker pool",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack-dev-server --config test/webpack.config.js --port 9090 --open"
+    },
+    "keywords": [
+        "workers",
+        "worker",
+        "web worker",
+        "multithreading",
+        "Open Web Project",
+        "owp"
+    ],
+    "author": "Andreas Arvidsson",
+    "license": "MIT",
+    "homepage": "https://github.com/AndreasArvidsson/OpenWebProject-Workers",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AndreasArvidsson/OpenWebProject-Workers.git"
+    },
+    "bugs": {
+        "url": "https://github.com/AndreasArvidsson/OpenWebProject-Workers/issues"
+    },
+    "devDependencies": {
+        "webpack": "latest",
+        "webpack-cli": "latest",
+        "webpack-dev-server": "latest",
+        "html-webpack-plugin": "latest",
+        "babel-loader": "latest",
+        "@babel/core": "latest",
+        "eslint-loader": "latest",
+        "eslint": "latest",
+        "babel-eslint": "latest"
+    }
+}
