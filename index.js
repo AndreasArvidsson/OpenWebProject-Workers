@@ -69,7 +69,15 @@ const runWork = (instance, options) => {
     instance._numRunning++;
 
     //Create a new dedicated worker.
-    const worker = new Worker(options.file);
+    let worker;
+    //If the file parameter is a function. Assume it's the constructor for the worker.
+    if (typeof options.file === "function") {
+        worker = new options.file();
+    }
+    //File parameter is file name.
+    else {
+        worker = new Worker(options.file);
+    }
 
     //Define callback to receive result.
     worker.onmessage = (e) => {

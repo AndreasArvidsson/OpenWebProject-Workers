@@ -22,11 +22,13 @@ const workers = new Workers(4);
 
 **Format**
 ```
-workers.add(file:string, message:any, transfer:array) => Promise
+workers.add(file:string||constructor, message:any, transfer:array) => Promise
 ```
 
 **Example echo**
 * Runs worker in file `"workerEcho.js"`.
+    - File parameter can be the workers file name or the constructor for the worker. 
+    - Import constructor and then pass is used with webpack.
 * Passes message `"Hello World"` to worker.
     - Message could be any data you want to pass not just a string.
     - Message is optional.
@@ -55,14 +57,14 @@ workers.add("workerSum.js", list, [list.buffer])
 
 **workerEcho.js**
 ```javascript
-this.onmessage = (e) => {
+onmessage = (e) => {
     postMessage(e.data);
 };
 ```
 
 **workerSum.js**
 ```javascript
-this.onmessage = (e) => {
+onmessage = (e) => {
     const list = e.data;
     let sum = 0;
     for (let i = 0; i < list.length; ++i) {
